@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<input type="button" onclick="getData()" value="GET">
+<input type="button" value="PUT" onclick="putData()">
+<script>
+    function getData() {
+        $.ajax({
+            type:"GET",
+            url:"http://localhost:8081/hello",
+            success:function (res) {
+                $("#app").html(res)
+                alert(res);
+            }
+
+        })
+    }
+    function putData() {
+        $.ajax({
+            type:"PUT",
+            url:"http://localhost:8081/doPut",
+            success:function (res) {
+                $("#app").html(res)
+                alert(res);
+            }
+
+        })
+    }
+</script>
+</body>
+</html>
